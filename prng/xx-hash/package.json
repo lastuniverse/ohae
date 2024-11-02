@@ -8,6 +8,13 @@
   "main": "./dist/xx-hash.umd.cjs",
   "module": "./dist/xx-hash.js",
   "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lastuniverse/ohae.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lastuniverse/ohae/issues"
+  },
   "exports": {
     ".": {
       "import": "./dist/xx-hash.js",
