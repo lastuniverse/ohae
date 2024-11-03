@@ -1,12 +1,12 @@
 {
-  "name": "@ohae/prng-xx-hash",
-  "description": "This package implements a PRNG (pseudo random number generator) based on the xx_hash algorithm.",
+  "name": "@ohae/prng",
   "author": "Roman Surmanidze",
+  "description": "PRNG`s (pseudo random number generators)",
   "license": "MIT",
   "version": "1.0.0",
   "type": "module",
-  "main": "./dist/prng-xx-hash.umd.cjs",
-  "module": "./dist/prng-xx-hash.js",
+  "main": "./dist/prng.umd.cjs",
+  "module": "./dist/prng.js",
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
@@ -18,13 +18,18 @@
   "homepage": "https://github.com/lastuniverse/ohae#readme",
   "exports": {
     ".": {
-      "import": "./dist/prng-xx-hash.js",
-      "require": "./dist/prng-xx-hash.umd.cjs"
+      "import": "./dist/prng.js",
+      "require": "./dist/prng.umd.cjs"
     }
   },
   "files": [
     "dist"
   ],  
+  "keywords": [
+    "ohae",
+    "prng",
+    "game"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build"
