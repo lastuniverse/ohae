@@ -3,12 +3,12 @@ import { IPrng } from "./IPrng";
 type Class<T> = new (...args: any[]) => T;
 
 export class Prng implements IPrng{
-	private _seed: number = 0;
-	private _prng!: IPrng;
+	private _seed: number;
+	private _prng: IPrng;
 
 	constructor(prngClass: Class<IPrng>, seed: number = 0) {
-		this.seed = seed;
-		this.prng = prngClass;
+		this._seed = seed;
+		this._prng = new prngClass(seed);
 	}
 
 	get seed(): number {
@@ -17,14 +17,16 @@ export class Prng implements IPrng{
 
 	set seed(value: number) {
 		this._seed = value;
+		this._prng.seed = value;
 	}
 
 	get prng(): IPrng {
 		return this._prng;
 	}
 
-	set prng(prngClass: Class<IPrng>) {
-		this._prng = new prngClass(this.seed);
+	set prng(prng: IPrng) {
+		this._prng = prng;
+		this._prng.seed = this._seed;
 	}
 
 	public random(...buf: Array<number>): number {
