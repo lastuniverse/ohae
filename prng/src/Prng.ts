@@ -1,14 +1,12 @@
 import { IPrng } from "./IPrng";
 
-type Class<T> = new (...args: any[]) => T;
-
 export class Prng implements IPrng{
-	private _seed: number;
+	private _seed!: number;
 	private _prng: IPrng;
 
-	constructor(prngClass: Class<IPrng>, seed: number = 0) {
-		this._seed = seed;
-		this._prng = new prngClass(seed);
+	constructor(prng: IPrng, seed: number = 0) {
+		this._prng = prng;
+		this.seed = seed;
 	}
 
 	get seed(): number {
