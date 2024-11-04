@@ -25,7 +25,10 @@ npm-debug.log*
 git.push.sh
 npm.push.sh
 npm.run.build.sh
+npm.version.patch.sh
 npm.version.minor.sh
+npm.version.major.sh
+
 
 # Runtime data
 pids
