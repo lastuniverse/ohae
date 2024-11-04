@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/lastuniverse/ohae/issues"
   },
-  "homepage": "https://github.com/lastuniverse/ohae#readme",
+  "homepage": "https://github.com/lastuniverse/ohae/tree/main/prng#readme",
   "exports": {
     ".": {
       "import": "./dist/prng.js",
@@ -24,7 +24,7 @@
   },
   "files": [
     "dist"
-  ],  
+  ],
   "keywords": [
     "ohae",
     "prng",

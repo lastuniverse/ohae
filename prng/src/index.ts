@@ -1,2 +1,3 @@
-export class Prng {
-}
+export * from './IPrng'
+export * from './Prng'
+

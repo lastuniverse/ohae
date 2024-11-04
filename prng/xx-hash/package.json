@@ -3,7 +3,7 @@
   "description": "This package implements a PRNG (pseudo random number generator) based on the xx_hash algorithm.",
   "author": "Roman Surmanidze",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "main": "./dist/prng-xx-hash.umd.cjs",
   "module": "./dist/prng-xx-hash.js",
@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/lastuniverse/ohae/issues"
   },
-  "homepage": "https://github.com/lastuniverse/ohae#readme",
+  "homepage": "https://github.com/lastuniverse/ohae/tree/main/prng/xx-hash#readme",
   "exports": {
     ".": {
       "import": "./dist/prng-xx-hash.js",
@@ -24,7 +24,7 @@
   },
   "files": [
     "dist"
-  ],  
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build"

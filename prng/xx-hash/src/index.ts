@@ -1,5 +1,7 @@
-export class XXHash {
-	private seed: number = 0;
+import { IPrng } from '@ohae/prng';
+
+export class XXHash implements IPrng{
+	private _seed: number = 0;
 	private p1: number = 2654435761;
 	private p2: number = 2246822519;
 	private p3: number = 3266489917;
@@ -9,6 +11,14 @@ export class XXHash {
 	constructor(seed: number = 0) {
 		this.seed = seed;
 		this.random = this._GetXxHash;
+	}
+
+	get seed(): number {
+		return this._seed;
+	}
+
+	set seed(value: number) {
+		this._seed = value;
 	}
 
 	public random(...buf: Array<number>): number {
@@ -33,10 +43,10 @@ export class XXHash {
 
 		if (len >= 4) {
 			let limit = len - 4;
-			let v1 = this.seed + this.p1 + this.p2;
-			let v2 = this.seed + this.p2;
-			let v3 = this.seed + 0;
-			let v4 = this.seed - this.p1;
+			let v1 = this._seed + this.p1 + this.p2;
+			let v2 = this._seed + this.p2;
+			let v3 = this._seed + 0;
+			let v4 = this._seed - this.p1;
 
 			while (index <= limit) {
 				v1 = this._CalcSubHash(v1, buf[index]);
@@ -55,7 +65,7 @@ export class XXHash {
 				this._RotateLeft(v3, 12) +
 				this._RotateLeft(v4, 18);
 		} else {
-			h32 = this.seed + this.p5;
+			h32 = this._seed + this.p5;
 		}
 
 		h32 += len * 4;

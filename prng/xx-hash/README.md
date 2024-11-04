@@ -1,4 +1,4 @@
-# @ohae/prng/xx-hash
+# @ohae/prng-xx-hash
  
 This package implements a PRNG (pseudo random number generator) based on the xx_hash algorithm
 > It ensures repeatability of the generation result when using the same input data. This gives wide opportunities for its use in game development. For example, to ensure the generation of identical maps on the client side. To do this, you only need to provide clients with identical seeds.
