@@ -6,8 +6,8 @@ export default defineConfig({
 	build: {
 		lib: {
 			entry: resolve(__dirname, 'src/index.ts'),
-			name: 'prng-xx-hash',
-			fileName: 'prng-xx-hash',
+			name: 'index',
+			fileName: 'index',
 		},
 	},
 	plugins: [dts()],
