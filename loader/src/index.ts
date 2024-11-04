@@ -1,3 +1,3 @@
-export * from './IPrng'
-export * from './Prng'
+export * from './ILoader'
+export * from './Loader'
 
