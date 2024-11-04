@@ -1,34 +1,34 @@
 interface EventListener<T = unknown> {
-	(data: T): void;
+    (data: T): void;
 }
 
 declare type EventListenerData<T> = {
-	listener: EventListener<T>,
-	context?: Object
+    listener: EventListener<T>,
+    context?: Object
 };
 
 export class SimpleEventEmitter<E extends string | number | symbol> {
-	private events: Map<E, Array<EventListenerData<any>>> = new Map();
+    private events: Map<E, Array<EventListenerData<any>>> = new Map();
 
-	constructor() { }
+    constructor() { }
 
-    public getListeners(name: E): Array<EventListenerData<any>>{
-		return this.events.get(name) ?? [];
+    public getListeners(name: E): Array<EventListenerData<any>> {
+        return this.events.get(name) ?? [];
     }
 
-	public clear(name?: E): void{
-		if(name){
-			this.events.delete(name);
-		}else{
-			this.events.clear();
-		}		
-	}
+    public clear(name?: E): void {
+        if (name) {
+            this.events.delete(name);
+        } else {
+            this.events.clear();
+        }
+    }
 
-	public on<T>(name: E, listener: EventListener<T>, context?: Object): EventListener<T> {
-		const listenerData = { listener: listener, context: context } as EventListenerData<T>;
-		const list = this.getListeners(name);
-		list.push(listenerData);
-		this.events.set(name, list);
+    public on<T>(name: E, listener: EventListener<T>, context?: Object): EventListener<T> {
+        const listenerData = { listener: listener, context: context } as EventListenerData<T>;
+        const list = this.getListeners(name);
+        list.push(listenerData);
+        this.events.set(name, list);
         return listener;
     }
 
@@ -49,9 +49,9 @@ export class SimpleEventEmitter<E extends string | number | symbol> {
     public emit<T>(name: E, data: T) {
         const list = this.getListeners(name);
 
-		list.slice(0).forEach(function (item: EventListenerData<T>) {
-			item.listener.apply(item.context ?? null, [data]);
-		});
+        list.slice(0).forEach(function (item: EventListenerData<T>) {
+            item.listener.apply(item.context ?? null, [data]);
+        });
     }
 
     public once<T>(name: E, listener: EventListener<T>, context?: Object): EventListener<T> {
