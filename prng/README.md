@@ -36,7 +36,7 @@ import { Prng } from '@ohae/prng';
 import { XXHash } from '@ohae/prng-xx-hash';
 
 const seed = 1234567;
-const prng = new Prng(PrngImplementClass, seed);
+const prng = new Prng(XXHash, seed);
 
 console.log(prng.random(1));	// 0.25214675354122806
 console.log(prng.random(1));	// 0.25214675354122806
@@ -53,7 +53,7 @@ import { Prng, IPrng } from '@ohae/prng';
 import { XXHash } from '@ohae/prng-xx-hash';
 
 const seed: number = 1234567;
-const prng: IPrng = new Prng(PrngImplementClass, seed);
+const prng: IPrng = new Prng(XXHash, seed);
 
 console.log(prng.random(1));	// 0.25214675354122806
 console.log(prng.random(1));	// 0.25214675354122806
