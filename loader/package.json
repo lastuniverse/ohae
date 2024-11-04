@@ -1,0 +1,43 @@
+{
+  "name": "@ohae/loader",
+  "author": "Roman Surmanidze",
+  "description": "Loader (use it for control to load resources)",
+  "license": "MIT",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lastuniverse/ohae.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lastuniverse/ohae/issues"
+  },
+  "homepage": "https://github.com/lastuniverse/ohae/tree/main/loader#readme",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "ohae",
+    "loader",
+    "game"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.8.6",
+    "typescript": "~5.6.2",
+    "vite": "^5.4.10",
+    "vite-plugin-dts": "^4.3.0"
+  }
+}
