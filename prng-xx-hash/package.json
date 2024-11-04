@@ -41,6 +41,6 @@
     "vite-plugin-dts": "^4.3.0"
   },
   "dependencies": {
-    "@ohae/prng": "^1.3.0"
+    "@ohae/prng": "^1.4.0"
   }
 }
