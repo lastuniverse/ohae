@@ -19,8 +19,10 @@ npm install @ohae/prng --save
 const { Prng } = require('@ohae/prng');
 const { XXHash } = require('@ohae/prng-xx-hash');
 
+
+const prngImplement = new XXHash();
 const seed = 1234567;
-const prng = new Prng(XXHash, seed);
+const prng = new Prng(prngImplement, seed);
 
 console.log(prng.random(1));	// 0.25214675354122806
 console.log(prng.random(1));	// 0.25214675354122806
@@ -35,8 +37,9 @@ console.log(prng.random(4, 5, 6));	// 0.7994929356033664
 import { Prng } from '@ohae/prng';
 import { XXHash } from '@ohae/prng-xx-hash';
 
+const prngImplement = new XXHash();
 const seed = 1234567;
-const prng = new Prng(XXHash, seed);
+const prng = new Prng(prngImplement, seed);
 
 console.log(prng.random(1));	// 0.25214675354122806
 console.log(prng.random(1));	// 0.25214675354122806
@@ -52,8 +55,9 @@ console.log(prng.random(4, 5, 6));	// 0.7994929356033664
 import { Prng, IPrng } from '@ohae/prng';
 import { XXHash } from '@ohae/prng-xx-hash';
 
+const prngImplement: IPrng = new XXHash();
 const seed: number = 1234567;
-const prng: IPrng = new Prng(XXHash, seed);
+const prng: IPrng = new Prng(prngImplement, seed);
 
 console.log(prng.random(1));	// 0.25214675354122806
 console.log(prng.random(1));	// 0.25214675354122806
