@@ -121,8 +121,8 @@ export class Vector extends Point {
 	};
 
 	// создать массив из вектора
-	public toArray(n: number = 2) {
-		return [this._x, this._y].slice(0, n);
+	public toArray() {
+		return [this._x, this._y];
 	};
 
 	// получить нормаль к вектору
