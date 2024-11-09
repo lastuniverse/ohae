@@ -1,11 +1,11 @@
 import { Point } from "../geometry/Point";
 
-export class Vector extends Point{
+export class Vector extends Point {
 
 	constructor(param1: number | Point, param2?: number) {
 		super(param1, param2)
 	}
-	
+
 	public get angle(): number {
 		return Math.atan2(this.y, this.x);
 	}
@@ -25,14 +25,14 @@ export class Vector extends Point{
 		this._x *= multiplier;
 		this._y *= multiplier;
 	}
-	
+
 	// клонировать вектор
 	public clone(): Vector {
 		return new Vector(this);
 	}
 
 	// установить значения вектора из полярных координат
-	public  setFromPolar(angle: number, length: number = 1): void {
+	public setFromPolar(angle: number, length: number = 1): void {
 		this._x = length * Math.cos(angle);
 		this._y = length * Math.sin(angle);
 	}
@@ -42,7 +42,7 @@ export class Vector extends Point{
 		const vector = this.clone();
 		vector.angle += angle;
 		return vector;
-	}	
+	}
 
 	// инвертировать вектор
 	public negative(): Vector {
@@ -88,7 +88,7 @@ export class Vector extends Point{
 
 	// скалярное перемножение векторов	
 	public dot(value1: number | Point, value2?: number): number {
-		if (value1 instanceof Point) 
+		if (value1 instanceof Point)
 			return this._x * value1.x + this._y * value1.y;
 		if (typeof value1 === "number" && typeof value2 === "number")
 			return this._x * value1 + this._y * value2;
