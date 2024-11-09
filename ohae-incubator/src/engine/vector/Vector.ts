@@ -1,20 +1,11 @@
 import { Point } from "../geometry/Point";
 
-export class Vector2 extends Point{
+export class Vector extends Point{
 
 	constructor(param1: number | Point, param2?: number) {
 		super(param1, param2)
 	}
 	
-	public  setFromPolar(angle: number, length: number = 1): void {
-		this._x = length * Math.cos(angle);
-		this._y = length * Math.sin(angle);
-	}
-
-	public clone(): Vector2 {
-		return new Vector2(this);
-	}
-
 	public get angle(): number {
 		return Math.atan2(this.y, this.x);
 	}
@@ -34,45 +25,57 @@ export class Vector2 extends Point{
 		this._x *= multiplier;
 		this._y *= multiplier;
 	}
+	
+	// клонировать вектор
+	public clone(): Vector {
+		return new Vector(this);
+	}
 
-	public rotate(angle: number): Vector2 {
+	// установить значения вектора из полярных координат
+	public  setFromPolar(angle: number, length: number = 1): void {
+		this._x = length * Math.cos(angle);
+		this._y = length * Math.sin(angle);
+	}
+
+	// повернуть вектор
+	public rotate(angle: number): Vector {
 		const vector = this.clone();
 		vector.angle += angle;
 		return vector;
 	}	
 
 	// инвертировать вектор
-	public negative(): Vector2 {
-		return new Vector2(-this._x, -this._y);
+	public negative(): Vector {
+		return new Vector(-this._x, -this._y);
 	};
 
 	// сложить с вектором или скаляром
-	public add(value: number | Point): Vector2 {
-		if (typeof value === 'number') return new Vector2(this._x + value, this._y + value);
-		else return new Vector2(this._x + value.x, this._y + value.y);
+	public add(value: number | Point): Vector {
+		if (typeof value === 'number') return new Vector(this._x + value, this._y + value);
+		else return new Vector(this._x + value.x, this._y + value.y);
 	};
 
 	// вычесть вектор или скаляр
-	public subtract(value: number | Point): Vector2 {
-		if (typeof value === 'number') return new Vector2(this._x - value, this._y - value);
-		else return new Vector2(this._x - value.x, this._y - value.y);
+	public subtract(value: number | Point): Vector {
+		if (typeof value === 'number') return new Vector(this._x - value, this._y - value);
+		else return new Vector(this._x - value.x, this._y - value.y);
 	};
 
 	// умножить на вектор или скаляр
-	public multiply(value: number | Point): Vector2 {
-		if (typeof value === 'number') return new Vector2(this._x * value, this._y * value);
-		else return new Vector2(this._x * value.x, this._y * value.y);
+	public multiply(value: number | Point): Vector {
+		if (typeof value === 'number') return new Vector(this._x * value, this._y * value);
+		else return new Vector(this._x * value.x, this._y * value.y);
 	};
 
 	// разделить на вектор или скаляр
-	public divide(value: number | Point): Vector2 {
-		if (typeof value === 'number') return new Vector2(this._x / value, this._y / value);
-		else return new Vector2(this._x / value.x, this._y / value.y);
+	public divide(value: number | Point): Vector {
+		if (typeof value === 'number') return new Vector(this._x / value, this._y / value);
+		else return new Vector(this._x / value.x, this._y / value.y);
 	};
 
 	// ???
-	public cross(value: Point): Vector2 {
-		return new Vector2(
+	public cross(value: Point): Vector {
+		return new Vector(
 			this._y * value.x - this._x * value.y,
 			this._x * value.y - this._y * value.x
 		);
@@ -92,9 +95,8 @@ export class Vector2 extends Point{
 		throw new Error("Invalid arguments for dot method");
 	};
 
-
 	// нормализация вектора
-	public unit(): Vector2 {
+	public unit(): Vector {
 		return this.divide(this.length);
 	};
 
@@ -124,8 +126,8 @@ export class Vector2 extends Point{
 	};
 
 	// получить нормаль к вектору
-	public normal(): Vector2 {
-		return new Vector2(-this._y, this._x);
+	public normal(): Vector {
+		return new Vector(-this._y, this._x);
 	};
 
 	// получить объект Point
