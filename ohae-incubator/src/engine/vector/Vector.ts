@@ -2,8 +2,8 @@ import { Point } from "../geometry/Point";
 
 export class Vector extends Point {
 
-	constructor(param1: number | Point, param2?: number) {
-		super(param1, param2)
+	constructor(value1: number | Point, value2?: number) {
+		super(value1, value2);
 	}
 
 	public get angle(): number {
@@ -118,11 +118,6 @@ export class Vector extends Point {
 	// получение угла между двумя вектороми
 	public angleTo(value: Point): number {
 		return Math.acos(this.dot(value) / this.length * Math.hypot(value.x, value.y));
-	};
-
-	// создать массив из вектора
-	public toArray() {
-		return [this._x, this._y];
 	};
 
 	// получить нормаль к вектору

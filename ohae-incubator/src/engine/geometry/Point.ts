@@ -22,13 +22,13 @@ export class Point {
         this._y = value;
     }
 
-    public set(value1: number | Point, value2?: number): void {
+    public set(value1: number | Point | Array<number>, value2?: number): void {
         if (value1 instanceof Point) {
-            this._x = value1.x;
-            this._y = value1.y;
+            this.x = value1.x;
+            this.y = value1.y;
         } else if (typeof value1 === "number" && typeof value2 === "number") {
-            this._x = value1;
-            this._y = value2;
+            this.x = value1;
+            this.y = value2;
         } else {
             throw new Error("Invalid arguments for set method");
         }
@@ -40,12 +40,12 @@ export class Point {
 
     public distanceTo(value1: number | Point, value2?: number): number {
         if (value1 instanceof Point) {
-            const dx = this._x - value1.x;
-            const dy = this._y - value1.y;
+            const dx = this.x - value1.x;
+            const dy = this.y - value1.y;
             return Math.hypot(dx, dy);
         } else if (typeof value1 === "number" && typeof value2 === "number") {
-            const dx = this._x - value1;
-            const dy = this._y - value2;
+            const dx = this.x - value1;
+            const dy = this.y - value2;
             return Math.hypot(dx, dy);
         } else {
             throw new Error("Invalid arguments for move method");
@@ -54,18 +54,21 @@ export class Point {
 
     public move(value1: number | Point, value2?: number): void {
         if (value1 instanceof Point) {
-            this._x += value1.x;
-            this._y += value1.y;
+            this.x += value1.x;
+            this.y += value1.y;
         } else if (typeof value1 === "number" && typeof value2 === "number") {
-            this._x += value1;
-            this._y += value2;
+            this.x += value1;
+            this.y += value2;
         } else {
             throw new Error("Invalid arguments for move method");
         }
     }
 
-    toString(): string {
-        ``
-        return `(${this.x}, ${this.y})`;
+    public toString(): string {
+        return `(${this.toArray().join(", ")})`;
     }
+
+    public toArray(): Array<number> {
+		return [this._x, this._y];
+	};
 }
