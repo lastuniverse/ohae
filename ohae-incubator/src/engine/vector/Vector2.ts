@@ -124,7 +124,7 @@ export class Vector2 extends Point{
 	};
 
 	// получить объект Point
-	public toLocate(): Point {
+	public toPoint(): Point {
 		return new Point(this);
 	}
 };
