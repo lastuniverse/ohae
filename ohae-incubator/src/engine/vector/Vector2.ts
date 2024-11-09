@@ -1,4 +1,4 @@
-import { Point } from "./Point";
+import { Point } from "../geometry/Point";
 
 export class Vector2 extends Point{
 
