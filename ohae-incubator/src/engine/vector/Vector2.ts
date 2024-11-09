@@ -5,6 +5,11 @@ export class Vector2 extends Point{
 	constructor(param1: number | Point, param2?: number) {
 		super(param1, param2)
 	}
+	
+	public  setFromPolar(angle: number, length: number = 1): void {
+		this._x = length * Math.cos(angle);
+		this._y = length * Math.sin(angle);
+	}
 
 	public clone(): Vector2 {
 		return new Vector2(this);
@@ -114,9 +119,9 @@ export class Vector2 extends Point{
 	};
 
 	// создать массив из вектора
-	// public toArray(n) {
-	// 	return [this._x, this._y].slice(0, n || 3);
-	// };
+	public toArray(n: number = 2) {
+		return [this._x, this._y].slice(0, n);
+	};
 
 	// получить нормаль к вектору
 	public normal(): Vector2 {
